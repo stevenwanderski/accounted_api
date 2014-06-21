@@ -1,3 +1,4 @@
-= Accounted App API
+Accounted App API
+=
 
 Rock n roll.
