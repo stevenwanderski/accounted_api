@@ -18,5 +18,12 @@ module AccountedApi
     end
 
     config.time_zone = 'Central Time (US & Canada)'
+
+    config.action_dispatch.default_headers = {
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Allow-Methods' => 'POST, GET, PUT, DELETE, OPTIONS',
+      'Access-Control-Request-Method' => '*',
+      'Access-Control-Allow-Headers' => 'Content-Type, Accept'
+    }
   end
 end

@@ -1,5 +1,3 @@
-require 'rails_helper'
-
 describe Api::ClientsController do
   context "#index" do
     it "returns all clients" do
@@ -30,6 +28,30 @@ describe Api::ClientsController do
         json = JSON.parse(response.body)
         expect(json).to have_key("errors")
         expect(response.status).to eq(422)
+      end
+    end
+  end
+
+  context "#show" do
+    context "valid data" do
+      it "returns the client" do
+        client = create(:client, name: "Frank Zappa")
+
+        get :show, id: client.id
+
+        json = JSON.parse(response.body)
+        expect(response.status).to eq(200)
+        expect(json["name"]).to eq("Frank Zappa")
+      end
+    end
+
+    context "record not found" do
+      it "returns 404 code with errors" do
+        get :show, id: 222
+
+        json = JSON.parse(response.body)
+        expect(json).to have_key("errors")
+        expect(response.status).to eq(404)
       end
     end
   end
