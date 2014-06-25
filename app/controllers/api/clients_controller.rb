@@ -1,17 +1,17 @@
 class Api::ClientsController < ApplicationController
   # GET /clients
   def index
-    @clients = Client.all
-    render json: @clients
+    clients = Client.all
+    render json: clients
   end
 
   # POST /clients
   def create
-    @client = Client.new(client_params)
-    if @client.save
-      render json: @client, status: :created
+    client = Client.new(client_params)
+    if client.save
+      render json: client, status: :created
     else
-      render json: { errors: @client.errors.full_messages }, status: :unprocessable_entity
+      render json: { errors: client.errors.full_messages }, status: :unprocessable_entity
     end
   end
 

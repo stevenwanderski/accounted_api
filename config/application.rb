@@ -11,6 +11,7 @@ module AccountedApi
     config.autoload_paths += %W(#{config.root}/lib)
 
     config.generators do |g|
+      g.test_framework :rspec
       g.fixture_replacement :factory_girl
       g.helper false
       g.assets false

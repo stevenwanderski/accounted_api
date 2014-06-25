@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.1'
+gem 'awesome_print'
 
 group :production do
   gem 'pg'
@@ -9,7 +10,7 @@ end
 
 group :development, :test do
   gem 'mysql2'
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 3.0.0'
   gem 'faker'
 end
 
